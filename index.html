@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Plano de governo do Lula — guia visual de estudo</title>
+<style>
+:root{
+  --bg:#faf6f0; --surface:#ffffff; --ink:#1f1a17; --muted:#6b625b; --line:#e6ddd2;
+  --accent:#b3261e; --accent-soft:#f8e3e0;
+  --gold:#8a5a12; --gold-soft:#fbf0d9;
+  --green:#2f6b4f; --green-soft:#e0f0e8;
+  --blue:#2b5c8a; --blue-soft:#e1ecf6;
+  --radius:14px;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#16120f; --surface:#211b17; --ink:#f3ece4; --muted:#b3a79c; --line:#3a312b;
+    --accent:#ff8a7e; --accent-soft:#3a1f1c;
+    --gold:#e2b560; --gold-soft:#3a2f18;
+    --green:#7cc7a2; --green-soft:#1b2e25;
+    --blue:#8db9e6; --blue-soft:#1c2a38;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#16120f; --surface:#211b17; --ink:#f3ece4; --muted:#b3a79c; --line:#3a312b;
+  --accent:#ff8a7e; --accent-soft:#3a1f1c;
+  --gold:#e2b560; --gold-soft:#3a2f18;
+  --green:#7cc7a2; --green-soft:#1b2e25;
+  --blue:#8db9e6; --blue-soft:#1c2a38;
+}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px); scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  line-height:1.55;font-size:16px}
+a{color:var(--accent)}
+.wrap{max-width:980px;margin:0 auto;padding:0 18px}
+header.hero{padding:34px 0 22px}
+.eyebrow{display:inline-block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;
+  color:var(--accent);background:var(--accent-soft);padding:5px 10px;border-radius:999px}
+h1{font-size:clamp(28px,6vw,44px);line-height:1.1;margin:14px 0 10px;letter-spacing:-.02em}
+.lead{font-size:18px;color:var(--muted);max-width:720px;margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.chip{font-size:13px;border:1px solid var(--line);background:var(--surface);padding:5px 11px;border-radius:999px;color:var(--muted)}
+
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--bg);
+  border-bottom:1px solid var(--line)}
+nav.toc .wrap{display:flex;gap:8px;overflow-x:auto;padding-top:10px;padding-bottom:10px;scrollbar-width:none}
+nav.toc a{white-space:nowrap;text-decoration:none;font-size:14px;font-weight:600;color:var(--ink);
+  border:1px solid var(--line);background:var(--surface);padding:6px 12px;border-radius:999px}
+nav.toc a:hover{border-color:var(--accent);color:var(--accent)}
+
+section{padding:36px 0 8px}
+h2{font-size:clamp(22px,4.5vw,30px);margin:0 0 6px;letter-spacing:-.01em}
+.sub{color:var(--muted);margin:0 0 20px;max-width:720px}
+h3{font-size:17px;margin:0 0 8px}
+
+.grid{display:grid;gap:12px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.g5{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px}
+.stat{text-align:left}
+.stat .n{font-size:26px;font-weight:800;color:var(--accent);line-height:1.1}
+.stat .t{font-size:14px;color:var(--muted);margin-top:6px}
+
+.callout{border-radius:var(--radius);padding:16px 18px;border:1px solid var(--line);background:var(--gold-soft);margin:18px 0}
+.callout strong.k{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.callout.red{background:var(--accent-soft)}
+.callout.red strong.k{color:var(--accent)}
+.callout.green{background:var(--green-soft)}
+.callout.green strong.k{color:var(--green)}
+.callout p{margin:0}
+
+/* tabs */
+.tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px;margin-bottom:10px;scrollbar-width:none}
+.tabs button{font:inherit;font-size:14px;font-weight:600;white-space:nowrap;cursor:pointer;
+  border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:8px 14px;border-radius:999px}
+.tabs button[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .tabs button[aria-selected="true"]{color:#1a0f0d}}
+:root[data-theme="dark"] .tabs button[aria-selected="true"]{color:#1a0f0d}
+.panel{display:none}
+.panel.on{display:block}
+.panel ul{margin:0;padding-left:20px}
+.panel li{margin:7px 0}
+.how{margin-top:12px;border-left:4px solid var(--blue);background:var(--blue-soft);padding:12px 14px;border-radius:0 var(--radius) var(--radius) 0;font-size:15px}
+.how b{color:var(--blue)}
+
+/* levers */
+.lever h3{display:flex;align-items:center;gap:8px}
+.dot{width:12px;height:12px;border-radius:50%;display:inline-block}
+.d-green{background:var(--green)} .d-red{background:var(--accent)} .d-gold{background:var(--gold)}
+.lever ul{margin:0;padding-left:18px;font-size:15px}
+.lever li{margin:5px 0}
+
+/* proposal cards */
+.tag{display:inline-block;font-size:12px;font-weight:700;padding:3px 9px;border-radius:999px;margin-right:6px}
+.t-green{background:var(--green-soft);color:var(--green)}
+.t-red{background:var(--accent-soft);color:var(--accent)}
+.t-gold{background:var(--gold-soft);color:var(--gold)}
+.prop h3{margin:8px 0 8px}
+.prop dl{margin:0;font-size:14.5px}
+.prop dt{font-weight:700;color:var(--muted);font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin-top:9px}
+.prop dd{margin:2px 0 0}
+
+/* money */
+.cols{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.col h3{display:flex;align-items:center;gap:8px}
+.col ul{margin:0;padding-left:18px;font-size:15px}
+.col li{margin:6px 0}
+.col.in{border-top:5px solid var(--green)}
+.col.out{border-top:5px solid var(--accent)}
+.bar{margin:16px 0 4px}
+.bar .row{display:flex;justify-content:space-between;font-size:13px;color:var(--muted)}
+.bar .track{position:relative;height:26px;border-radius:8px;background:var(--line);overflow:hidden;margin-top:4px}
+.bar .zone{position:absolute;top:0;bottom:0;background:var(--green);opacity:.85;left:12%;width:42%}
+.bar .lab{position:absolute;top:0;bottom:0;display:flex;align-items:center;padding:0 10px;font-size:12px;font-weight:700;color:#fff}
+.ways h3{margin-bottom:4px}
+.ways .num{display:inline-flex;width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;
+  align-items:center;justify-content:center;font-size:14px;font-weight:800;margin-right:8px}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .ways .num{color:#1a0f0d}}
+:root[data-theme="dark"] .ways .num{color:#1a0f0d}
+
+/* faq */
+details{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:0;margin:10px 0}
+summary{cursor:pointer;padding:14px 16px;font-weight:700;list-style:none;display:flex;gap:10px;align-items:flex-start}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"+";font-weight:800;color:var(--accent);width:16px;flex:none}
+details[open] summary::before{content:"–"}
+.qa{padding:0 16px 16px;display:grid;gap:10px}
+.qa .a,.qa .w{border-radius:10px;padding:10px 12px;font-size:15px}
+.qa .a{background:var(--green-soft)}
+.qa .w{background:var(--gold-soft)}
+.qa b.l{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:2px}
+.qa .a b.l{color:var(--green)} .qa .w b.l{color:var(--gold)}
+
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:14.5px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--accent-soft);color:var(--accent);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+tr:last-child td{border-bottom:none}
+
+.remember{counter-reset:r;display:grid;gap:10px;padding:0;list-style:none}
+.remember li{counter-increment:r;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px 14px 56px;position:relative}
+.remember li::before{content:counter(r);position:absolute;left:14px;top:12px;width:30px;height:30px;border-radius:50%;
+  background:var(--accent);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .remember li::before{color:#1a0f0d}}
+:root[data-theme="dark"] .remember li::before{color:#1a0f0d}
+
+footer{padding:30px 0 50px;color:var(--muted);font-size:14px}
+footer ul{padding-left:18px}
+footer li{margin:4px 0;word-break:break-word}
+small.note{color:var(--muted);display:block;margin-top:8px;font-size:13px}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Guia de estudo · Eleições 2026</span>
+    <h1>O plano de governo do Lula, sem a preguiça de ler 84 páginas</h1>
+    <p class="lead">O que ele promete, <strong>como faria acontecer</strong> (e o que depende do Congresso) e a pergunta que todo mundo faz: <strong>vai ter corte de gastos?</strong></p>
+    <div class="meta">
+      <span class="chip">Atualizado em 13/out/2026</span>
+      <span class="chip">2º turno: 25/out · Lula (13) x Flávio Bolsonaro (22)</span>
+      <span class="chip">Base: programa registrado no TSE + reportagens</span>
+    </div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Seções">
+  <div class="wrap">
+    <a href="#resumo">Resumo</a>
+    <a href="#areas">Por área</a>
+    <a href="#como">Como faria</a>
+    <a href="#cortes">E os cortes?</a>
+    <a href="#perguntas">Perguntas difíceis</a>
+    <a href="#flavio">Contraste</a>
+    <a href="#decorar">Para decorar</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- RESUMO -->
+<section id="resumo">
+  <h2>O plano em 1 minuto</h2>
+  <p class="sub">Lula é o presidente em exercício e disputa a reeleição. Por isso o programa funciona como <strong>"continuar o que existe + acrescentar algumas apostas novas"</strong>.</p>
+  <div class="grid g5">
+    <div class="card stat"><div class="n">13</div><div class="t">eixos temáticos, em 84 páginas</div></div>
+    <div class="card stat"><div class="n">5×2</div><div class="t">fim da escala 6x1 e jornada de 40h, sem cortar salário</div></div>
+    <div class="card stat"><div class="n">Manter</div><div class="t">o arcabouço fiscal (regra que limita o crescimento do gasto)</div></div>
+    <div class="card stat"><div class="n">Novo</div><div class="t">Ministério da Segurança Pública, após a PEC da Segurança</div></div>
+    <div class="card stat"><div class="n">PAC 2</div><div class="t">nova edição do Novo PAC: obras + concessões</div></div>
+  </div>
+  <div class="callout">
+    <strong class="k">A tese central do plano</strong>
+    <p>Crescer com investimento (infraestrutura, indústria, crédito), reduzir desigualdade com programas sociais e salário mínimo, e fechar a conta com <strong>crescimento + justiça tributária</strong>, sem prometer um grande corte de despesas.</p>
+  </div>
+</section>
+
+<!-- POR ÁREA -->
+<section id="areas">
+  <h2>O que ele promete, área por área</h2>
+  <p class="sub">Toque nas abas. Cada uma mostra as promessas e, no quadro azul, <strong>como e com quem</strong> seria feito.</p>
+
+  <div class="tabs" role="tablist" id="tabs">
+    <button role="tab" aria-selected="true" data-tab="p-trab">Trabalho e renda</button>
+    <button role="tab" aria-selected="false" data-tab="p-eco">Economia</button>
+    <button role="tab" aria-selected="false" data-tab="p-saude">Saúde</button>
+    <button role="tab" aria-selected="false" data-tab="p-edu">Educação</button>
+    <button role="tab" aria-selected="false" data-tab="p-seg">Segurança</button>
+    <button role="tab" aria-selected="false" data-tab="p-mor">Moradia e cidades</button>
+    <button role="tab" aria-selected="false" data-tab="p-est">Estado e democracia</button>
+    <button role="tab" aria-selected="false" data-tab="p-clima">Clima, energia e soberania</button>
+  </div>
+
+  <div class="card panel on" id="p-trab">
+    <ul>
+      <li><strong>Fim da escala 6x1</strong> e jornada de 40h semanais sem redução de salário, nos termos já aprovados na Câmara (PEC 221/2019).</li>
+      <li>Continuar a <strong>valorização do salário mínimo</strong> acima da inflação.</li>
+      <li><strong>Regras para trabalhadores de aplicativo</strong>: remuneração, condições de trabalho e proteção previdenciária.</li>
+      <li>Combater a <strong>"pejotização" fraudulenta</strong> e a terceirização irregular.</li>
+      <li>Manter e aperfeiçoar o <strong>Bolsa Família</strong> e o <strong>Pé-de-Meia</strong>.</li>
+      <li>Vincular incentivos públicos a compromissos de <strong>emprego de qualidade</strong>.</li>
+    </ul>
+    <div class="how"><b>Como:</b> a jornada e as regras de aplicativo dependem de <strong>emenda constitucional e leis aprovadas pelo Congresso</strong>. Salário mínimo e programas sociais são decisões do Executivo, via orçamento.</div>
+  </div>
+
+  <div class="card panel" id="p-eco">
+    <ul>
+      <li><strong>Elevar a taxa de investimento</strong>: infraestrutura logística e infraestrutura social.</li>
+      <li><strong>Manter o arcabouço fiscal</strong> e criar condições para uma queda sustentada dos juros.</li>
+      <li><strong>Nova Indústria Brasil</strong>: foco em inteligência artificial, minerais críticos e baixo carbono.</li>
+      <li><strong>Novo PAC 2</strong>: obras públicas e concessões (rodovias, ferrovias, aeroportos regionais, portos).</li>
+      <li><strong>Crédito para micro e pequenas empresas</strong> via fundos garantidores e Brasil Mais Produtivo.</li>
+      <li>Ampliar o <strong>Plano Safra</strong> e o seguro rural.</li>
+      <li><strong>Petrobras</strong> volta a atuar na distribuição de combustíveis e amplia o refino.</li>
+      <li><strong>Soberania digital</strong>: IA desenvolvida no país, supercomputadores e data centers com contrapartidas.</li>
+    </ul>
+    <div class="how"><b>Como:</b> crédito direcionado (BNDES e bancos públicos), compras públicas com preferência a empresa nacional, leilões de concessão e atuação das estatais. O plano <strong>não traz orçamento consolidado</strong> nem o valor da nova carteira do PAC.</div>
+  </div>
+
+  <div class="card panel" id="p-saude">
+    <ul>
+      <li><strong>Farmácia Popular</strong> mantida 100% gratuita, agora também com <strong>exames</strong> de acompanhamento (hipertensão, diabetes).</li>
+      <li><strong>Fila única digital</strong> do SUS, ordenada por risco clínico, com apoio de IA.</li>
+      <li><strong>Agora Tem Especialistas</strong>: terceiro turno, carretas da saúde, mutirões e parcerias com hospitais privados em troca de créditos ou dívidas.</li>
+      <li><strong>Prontuário único</strong> no celular do cidadão.</li>
+      <li>Manter o <strong>Mais Médicos</strong> e ampliar vacinação (HPV, dengue, VSR).</li>
+      <li>Levar o <strong>atendimento domiciliar ao idoso</strong> (PADI) a todo o país.</li>
+    </ul>
+    <div class="how"><b>Como:</b> portarias do Ministério da Saúde e orçamento federal, mais repasses a estados e municípios, que executam boa parte do SUS. É uma das áreas em que o governo <strong>decide quase sozinho</strong>; o limite é o custo recorrente, que o plano não estima.</div>
+  </div>
+
+  <div class="card panel" id="p-edu">
+    <ul>
+      <li><strong>Escola em tempo integral</strong> como prioridade absoluta (o Fundeb passa a financiar essa modalidade).</li>
+      <li><strong>Alfabetização na idade certa</strong>: de 66% (2025) para a meta de 80%.</li>
+      <li>Creches e escolas pelo Novo PAC 2; <strong>internet de qualidade em todas as escolas</strong> (hoje 75%).</li>
+      <li>Manter o <strong>Pé-de-Meia</strong> e criar o Pé-de-Meia Licenciatura.</li>
+      <li><strong>Mais 111 institutos federais</strong>, em 106 municípios.</li>
+      <li>Nova expansão do ensino superior público; Universidade Indígena e Universidade do Esporte.</li>
+      <li>Manter o <strong>piso do magistério</strong> e cumprir as metas do PNE 2026–2036.</li>
+    </ul>
+    <div class="how"><b>Como:</b> cooperação federativa. A União transfere recursos e dá apoio técnico; <strong>estados e municípios executam</strong>. Federais (IFs e universidades) são execução direta.</div>
+  </div>
+
+  <div class="card panel" id="p-seg">
+    <ul>
+      <li><strong>Ministério da Segurança Pública</strong>, criado depois que a PEC da Segurança for aprovada.</li>
+      <li><strong>Asfixia financeira</strong> do crime organizado e das milícias; Lei Antifacção (sancionada em 2026).</li>
+      <li>Programa <strong>Brasil Contra o Crime Organizado</strong>: R$ 10 bi (FIIS) para investimentos de estados e municípios.</li>
+      <li><strong>Controle de armas</strong> e rastreabilidade de munição.</li>
+      <li>Ampliar as <strong>FICCOs</strong>, o Sinesp e o sistema penitenciário federal.</li>
+      <li>Câmeras corporais, policiamento de proximidade e urbanização de favelas.</li>
+    </ul>
+    <div class="how"><b>Como:</b> segurança é competência principalmente dos <strong>estados</strong>. Por isso o plano depende de uma PEC que amplia o papel da União e de acordos com governadores. O ministério só nasce <strong>depois</strong> dessa aprovação.</div>
+  </div>
+
+  <div class="card panel" id="p-mor">
+    <ul>
+      <li><strong>Minha Casa, Minha Vida</strong> mantido e ampliado para todas as faixas (o plano cita meta de 3 milhões de moradias até o fim de 2026).</li>
+      <li>Novos instrumentos: <strong>Compra Assistida</strong> e Reforma Casa Brasil.</li>
+      <li><strong>Periferia Viva</strong>: urbanização de favelas e regularização fundiária; imóveis da União para moradia.</li>
+      <li><strong>Saneamento</strong>, metrôs, BRTs e ônibus elétricos.</li>
+      <li>Prevenção de desastres: contenção de encostas e drenagem.</li>
+    </ul>
+    <div class="how"><b>Como:</b> Caixa e FGTS no financiamento, Novo PAC nas obras e <strong>prefeituras</strong> na execução. Governo federal tem bastante autonomia aqui.</div>
+  </div>
+
+  <div class="card panel" id="p-est">
+    <ul>
+      <li><strong>Debater as emendas parlamentares</strong>: em 2026 somam R$ 50 bi, cerca de 1/5 das despesas discricionárias do Executivo.</li>
+      <li><strong>Reforma política e eleitoral</strong>.</li>
+      <li><strong>Regulação das plataformas digitais</strong>; ECA Digital e regras de telas por faixa etária.</li>
+      <li><strong>Conselho Nacional pela Soberania Digital</strong>.</li>
+      <li><strong>Serviços de apoio compartilhados</strong> entre ministérios (pessoal, orçamento, contratações); governo digital.</li>
+      <li>Mesa Nacional de Negociação com servidores; cotas no serviço público.</li>
+    </ul>
+    <div class="how"><b>Como:</b> mudar emendas, sistema político e regras de plataformas exige o <strong>Congresso</strong>. O plano apenas propõe "debater" as emendas, sem fixar uma redução.</div>
+  </div>
+
+  <div class="card panel" id="p-clima">
+    <ul>
+      <li><strong>Transição energética</strong>: leilões de transmissão, baterias, modernização de hidrelétricas.</li>
+      <li><strong>Nordeste como polo industrial</strong> de energia renovável (siderurgia verde, fertilizantes, hidrogênio de baixo carbono).</li>
+      <li>Regulamentar o <strong>mercado de carbono</strong> (SBCE) e usar a taxonomia sustentável para atrair capital.</li>
+      <li>Manter o <strong>Fundo Amazônia</strong>; o plano afirma que o desmatamento caiu ao menor nível da série.</li>
+      <li><strong>Minerais críticos e terras raras</strong>: beneficiar no país em vez de só exportar.</li>
+      <li>Soberania em várias frentes (digital, energética, alimentar, defesa) e protagonismo internacional.</li>
+    </ul>
+    <div class="how"><b>Como:</b> mistura de regulação (Executivo e Congresso), crédito público e investimento privado (Eco Invest). <small class="note">Nota: li esses eixos (10 a 13) por trechos e reportagens, com menos detalhe que os demais.</small></div>
+  </div>
+</section>
+
+<!-- COMO FARIA -->
+<section id="como">
+  <h2>Como ele faria isso acontecer</h2>
+  <p class="sub">A pergunta-chave para cada promessa é: <strong>o presidente decide sozinho ou precisa de outros?</strong> Existem três alavancas.</p>
+
+  <div class="grid g3">
+    <div class="card lever">
+      <h3><span class="dot d-green"></span>Sozinho (Executivo)</h3>
+      <ul>
+        <li>Decretos e portarias dos ministérios</li>
+        <li>Execução do orçamento e dos programas</li>
+        <li>BNDES, Caixa e bancos públicos</li>
+        <li>Estatais (Petrobras)</li>
+        <li>Compras públicas com preferência nacional</li>
+        <li>Leilões de concessão</li>
+      </ul>
+    </div>
+    <div class="card lever">
+      <h3><span class="dot d-red"></span>Com o Congresso</h3>
+      <ul>
+        <li>Emendas à Constituição (6x1, Segurança)</li>
+        <li>Leis (plataformas, streaming, direitos autorais e IA)</li>
+        <li>Orçamento anual</li>
+        <li>Regulamentação da reforma tributária</li>
+        <li>Mexer no sistema de emendas</li>
+      </ul>
+    </div>
+    <div class="card lever">
+      <h3><span class="dot d-gold"></span>Com parceiros</h3>
+      <ul>
+        <li>Estados e municípios (escolas, UBS, polícias)</li>
+        <li>Banco Central, que decide a Selic com autonomia</li>
+        <li>Setor privado (concessões, Eco Invest)</li>
+        <li>Judiciário e demais Poderes</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 style="margin-top:26px">Proposta por proposta: instrumento, quem aprova e obstáculo</h3>
+  <p class="sub" style="margin-bottom:12px">A avaliação de dificuldade é <strong>minha leitura</strong>, não do plano.</p>
+
+  <div class="grid g2">
+    <article class="card prop">
+      <span class="tag t-red">Congresso</span><span class="tag t-gold">Dificuldade: média-alta</span>
+      <h3>Fim da escala 6x1 (40h, dois dias de descanso)</h3>
+      <dl>
+        <dt>Instrumento</dt><dd>PEC 221/2019. Emenda constitucional não passa por sanção presidencial: depende só do Congresso.</dd>
+        <dt>Quem precisa aprovar</dt><dd>Senado, em dois turnos, com 3/5 dos votos (49 de 81). Se o Senado mudar o texto, ele volta à Câmara.</dd>
+        <dt>Onde está</dt><dd>Câmara aprovou em 27/05 (461 a 19 no 2º turno). CCJ do Senado aprovou em 02/09. O plenário do Senado começou a discutir em 06/10, com cinco sessões de debate antes do 1º turno.</dd>
+        <dt>Obstáculo</dt><dd>Pressão empresarial e tentativas de adiar ou trocar por redução com salário proporcional. O plano não estima o impacto econômico. O papel de Lula é a articulação política.</dd>
+      </dl>
+    </article>
+
+    <article class="card prop">
+      <span class="tag t-red">Congresso</span><span class="tag t-gold">Dificuldade: alta</span>
+      <h3>Ministério da Segurança Pública</h3>
+      <dl>
+        <dt>Instrumento</dt><dd>Primeiro a PEC da Segurança (já enviada ao Congresso); depois a criação do ministério.</dd>
+        <dt>Quem precisa aprovar</dt><dd>Câmara e Senado, e a cooperação dos governadores.</dd>
+        <dt>Enquanto isso</dt><dd>O Executivo já usa a Lei Antifacção, o programa de R$ 10 bi para estados e municípios e as FICCOs.</dd>
+        <dt>Obstáculo</dt><dd>A PEC mexe na divisão de competências entre União e estados.</dd>
+      </dl>
+    </article>
+
+    <article class="card prop">
+      <span class="tag t-green">Governo + Congresso (orçamento)</span><span class="tag t-gold">Dificuldade: média</span>
+      <h3>Novo PAC 2 e concessões</h3>
+      <dl>
+        <dt>Instrumento</dt><dd>Orçamento federal, investimentos de estatais, crédito do BNDES e leilões de rodovias e ferrovias.</dd>
+        <dt>Quem precisa aprovar</dt><dd>Leilões são do Executivo; o Orçamento anual passa pelo Congresso.</dd>
+        <dt>Obstáculo</dt><dd>Espaço fiscal. O plano não informa o valor da nova carteira, a divisão entre dinheiro público e privado nem cronograma.</dd>
+      </dl>
+    </article>
+
+    <article class="card prop">
+      <span class="tag t-green">Governo sozinho</span><span class="tag t-gold">Dificuldade: baixa</span>
+      <h3>Farmácia Popular com exames; fila única digital</h3>
+      <dl>
+        <dt>Instrumento</dt><dd>Portarias do Ministério da Saúde, orçamento e parcerias com farmácias e hospitais privados.</dd>
+        <dt>Quem precisa aprovar</dt><dd>Em geral, ninguém além do Executivo.</dd>
+        <dt>Obstáculo</dt><dd>Custo recorrente, que o plano não estima.</dd>
+      </dl>
+    </article>
+
+    <article class="card prop">
+      <span class="tag t-green">Governo sozinho</span><span class="tag t-gold">Dificuldade: baixa-média</span>
+      <h3>Minha Casa, Minha Vida ampliado</h3>
+      <dl>
+        <dt>Instrumento</dt><dd>Caixa e FGTS, subsídios do orçamento, terrenos da União e novas modalidades como a Compra Assistida.</dd>
+        <dt>Obstáculo</dt><dd>Disponibilidade de recursos do FGTS e do orçamento para as faixas de menor renda.</dd>
+      </dl>
+    </article>
+
+    <article class="card prop">
+      <span class="tag t-gold">Estados e municípios</span><span class="tag t-gold">Dificuldade: média</span>
+      <h3>Tempo integral, creches, 111 IFs, Pé-de-Meia</h3>
+      <dl>
+        <dt>Instrumento</dt><dd>Repasses via Novo PAC e Fundeb; Pé-de-Meia é programa federal já em operação.</dd>
+        <dt>Obstáculo</dt><dd>Capacidade de execução das prefeituras e continuidade de orçamento ao longo do mandato.</dd>
+      </dl>
+    </article>
+
+    <article class="card prop">
+      <span class="tag t-gold">Banco Central</span><span class="tag t-gold">Dificuldade: alta e indireta</span>
+      <h3>Queda sustentada dos juros</h3>
+      <dl>
+        <dt>Instrumento</dt><dd>Indireto: credibilidade fiscal e inflação sob controle. A Selic é decidida pelo Copom, do Banco Central autônomo.</dd>
+        <dt>Obstáculo</dt><dd>O plano não fixa meta nem prazo para os juros.</dd>
+      </dl>
+    </article>
+
+    <article class="card prop">
+      <span class="tag t-red">Congresso</span><span class="tag t-gold">Dificuldade: alta</span>
+      <h3>Regras para trabalho por aplicativo</h3>
+      <dl>
+        <dt>Instrumento</dt><dd>Projeto de lei.</dd>
+        <dt>Obstáculo</dt><dd>O governo já tentou regulamentar neste mandato e não teve êxito, segundo a Gazeta do Povo. O plano também não detalha alíquotas nem contribuições previdenciárias.</dd>
+      </dl>
+    </article>
+
+    <article class="card prop">
+      <span class="tag t-red">Congresso</span><span class="tag t-gold">Dificuldade: muito alta</span>
+      <h3>Mexer nas emendas parlamentares</h3>
+      <dl>
+        <dt>Instrumento</dt><dd>O plano propõe só abrir um debate com a sociedade. Alterar as emendas impositivas exige o Congresso.</dd>
+        <dt>Obstáculo</dt><dd>São R$ 50 bi em 2026 e o plano não propõe um volume menor. É o tema em que os parlamentares têm mais interesse direto.</dd>
+      </dl>
+    </article>
+
+    <article class="card prop">
+      <span class="tag t-green">Estatal</span><span class="tag t-gold">Dificuldade: média</span>
+      <h3>Petrobras volta à distribuição de combustíveis</h3>
+      <dl>
+        <dt>Instrumento</dt><dd>Decisão da estatal e de seu conselho, com capital da própria empresa.</dd>
+        <dt>Obstáculo</dt><dd>O plano não diz como (compra, parceria), quanto custa nem quando. Segundo a Gazeta do Povo, a ideia de recomprar o controle da antiga BR Distribuidora não consta mais.</dd>
+      </dl>
+    </article>
+  </div>
+</section>
+
+<!-- CORTES -->
+<section id="cortes">
+  <h2>E os cortes? Haveria?</h2>
+  <p class="sub">Esta é a parte em que a campanha adversária e os economistas mais cobram. Vale entender os dois lados da conta.</p>
+
+  <div class="callout red">
+    <strong class="k">Resposta curta</strong>
+    <p><strong>O programa não lista nenhum corte de despesa.</strong> Ele promete "controlar o aumento do gasto primário" ao manter o arcabouço fiscal e fechar a conta com crescimento e mais arrecadação dos mais ricos. Reportagens da Forbes Brasil e da Gazeta do Povo destacam que o texto não diz quais despesas reduzir, quanto isso economizaria nem fixa meta ou prazo para os juros.</p>
+  </div>
+
+  <div class="cols">
+    <div class="card col in">
+      <h3><span class="dot d-green"></span>Como o plano diz que fecha a conta</h3>
+      <ul>
+        <li><strong>Crescimento</strong> da economia (o plano fala em cerca de 3% ao ano no mandato atual).</li>
+        <li><strong>Justiça tributária</strong>: tributar offshores, fundos exclusivos e super-ricos. O plano afirma que cerca de 140 mil contribuintes do topo passaram a pagar mais, o que permitiu isentar do IR quem ganha até R$ 5 mil (mais de 15 milhões de pessoas aliviadas).</li>
+        <li><strong>Cortar benefícios fiscais</strong> considerados ineficientes.</li>
+        <li><strong>Eficiência</strong>: serviços compartilhados entre ministérios e compras públicas mais inteligentes.</li>
+        <li>Combate a "privilégios e distorções".</li>
+      </ul>
+    </div>
+    <div class="card col out">
+      <h3><span class="dot d-red"></span>O que pressiona a conta</h3>
+      <ul>
+        <li><strong>Teto de crescimento do gasto</strong>: pelo arcabouço, a despesa só cresce entre 0,6% e 2,5% acima da inflação ao ano.</li>
+        <li><strong>Despesas obrigatórias</strong> que crescem sozinhas (salário mínimo real, aposentadorias, BPC, pisos), o que comprime o restante, segundo análises de economistas.</li>
+        <li><strong>Promessas novas</strong>: exames na Farmácia Popular, tempo integral, 111 IFs, MCMV ampliado, Novo PAC 2.</li>
+        <li><strong>Dívida bruta</strong>: 82,9% do PIB em agosto (Banco Central), contra 71,4% no início do governo, segundo a Gazeta do Povo.</li>
+        <li><strong>Emendas</strong>: R$ 50 bi, cerca de 1/5 do orçamento discricionário.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card bar" aria-label="Esquema do arcabouço fiscal">
+    <h3 style="margin-bottom:2px">O arcabouço em uma imagem</h3>
+    <div class="row"><span>0%</span><span>crescimento real do gasto por ano</span><span>2,5%</span></div>
+    <div class="track" role="img" aria-label="Faixa de 0,6% a 2,5% de crescimento real permitido">
+      <div class="zone"></div>
+      <div class="lab" style="left:calc(12% + 8px)">faixa permitida: 0,6% a 2,5%</div>
+    </div>
+    <small class="note">Esquema ilustrativo da faixa de crescimento real da despesa. Dentro dela, quanto mais as obrigatórias crescem, menos sobra para investimentos e programas novos.</small>
+  </div>
+
+  <h3 style="margin-top:22px">Os três caminhos possíveis (análise, não promessa do plano)</h3>
+  <div class="grid g3 ways">
+    <div class="card"><h3><span class="num">1</span>A conta fecha sozinha</h3><p style="margin:0;font-size:15px">Crescimento forte, juros em queda e mais arrecadação seguram a dívida sem cortar. É a aposta do governo.</p></div>
+    <div class="card"><h3><span class="num">2</span>Aperto no que sobra</h3><p style="margin:0;font-size:15px">Com as obrigatórias subindo, o ajuste cairia sobre as despesas discricionárias: investimentos, custeio e, em tese, emendas.</p></div>
+    <div class="card"><h3><span class="num">3</span>Mudar a regra</h3><p style="margin:0;font-size:15px">Se as metas ficarem inalcançáveis, a saída seria rever o arcabouço ou as metas. Economistas do FGV Ibre já alertaram para esse risco.</p></div>
+  </div>
+
+  <h3 style="margin-top:22px">Sinais de ajuste que já aparecem no programa e no governo</h3>
+  <div class="card">
+    <ul style="margin:0;padding-left:20px">
+      <li><strong>Emendas parlamentares</strong>: o plano critica o modelo atual, mas só propõe debater.</li>
+      <li><strong>Serviços compartilhados</strong> entre ministérios para racionalizar o gasto.</li>
+      <li><strong>Reforma administrativa</strong>: segundo reportagem, uma ministra disse que não há proposta única; mais de 80 medidas já foram adotadas e há estudos para extinguir cargos obsoletos.</li>
+      <li><strong>Correios</strong>: Lula descartou privatizar e disse que quer recuperar a empresa.</li>
+      <li><strong>Precedente</strong>: o governo apresentou um pacote de contenção de gastos em 2024, que analistas consideraram tímido.</li>
+      <li>O plano afirma que houve um <strong>esforço fiscal de cerca de 2% do PIB (R$ 240 bi)</strong> entre 2023 e 2026 e projeta déficit primário próximo de 0,4% do PIB em 2026.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <strong class="k">O que o plano NÃO diz</strong>
+    <p>Quais despesas seriam reduzidas · quanto cada medida economiza · o custo do fim da 6x1 · o valor do Novo PAC 2 · meta ou prazo para os juros · um orçamento consolidado da agenda.</p>
+  </div>
+</section>
+
+<!-- PERGUNTAS DIFÍCEIS -->
+<section id="perguntas">
+  <h2>Perguntas difíceis que você vai ouvir</h2>
+  <p class="sub">Para cada uma: o <strong>argumento mais forte</strong> de quem defende o plano e o <strong>ponto fraco honesto</strong>. Saber os dois torna a conversa mais convincente.</p>
+
+  <details>
+    <summary>"Quem paga a conta do fim da 6x1?"</summary>
+    <div class="qa">
+      <div class="a"><b class="l">Argumento</b>O custo recai sobre as empresas, não diretamente sobre o orçamento. Defensores citam saúde, tempo com a família e o fato de que a Câmara aprovou por 461 a 19, com apoio popular acima de 70% em pesquisas.</div>
+      <div class="w"><b class="l">Ponto fraco</b>O plano não traz estimativa de impacto econômico, e o setor produtivo, sobretudo comércio e serviços, demonstra preocupação. Há ainda a proposta alternativa (PEC 12) de reduzir jornada com pagamento proporcional.</div>
+    </div>
+  </details>
+
+  <details>
+    <summary>"Vai ter corte de gastos?"</summary>
+    <div class="qa">
+      <div class="a"><b class="l">Argumento</b>O governo diz que já fez um esforço fiscal de cerca de 2% do PIB, que o déficit primário está perto de zero e que continuará segurando a despesa pelo arcabouço, com "justiça tributária" e eficiência.</div>
+      <div class="w"><b class="l">Ponto fraco</b>O programa não lista cortes nem estima economias. Ver a seção <a href="#cortes">E os cortes?</a>.</div>
+    </div>
+  </details>
+
+  <details>
+    <summary>"A dívida subiu. Como isso é responsabilidade fiscal?"</summary>
+    <div class="qa">
+      <div class="a"><b class="l">Argumento</b>O peso maior vem dos juros: em 12 meses, os juros nominais somaram R$ 1,18 tri, enquanto o déficit primário foi de R$ 82,1 bi. Por isso o plano coloca a queda dos juros como chave, junto com o arcabouço e a reforma tributária.</div>
+      <div class="w"><b class="l">Ponto fraco</b>A dívida bruta foi de 71,4% para cerca de 82–83% do PIB no mandato, e economistas dizem que limitar o ritmo do gasto, sozinho, não basta para estabilizá-la.</div>
+    </div>
+  </details>
+
+  <details>
+    <summary>"O plano é mais do mesmo? Tem número?"</summary>
+    <div class="qa">
+      <div class="a"><b class="l">Argumento</b>O plano se apoia em entregas já feitas, como Novo PAC (R$ 1,3 tri em investimentos mobilizados, segundo o programa), Nova Indústria Brasil (R$ 860 bi em financiamentos do P+P) e queda do desemprego, e promete continuidade com ajustes.</div>
+      <div class="w"><b class="l">Ponto fraco</b>É um documento de diretrizes: não tem orçamento consolidado e, segundo a Gazeta do Povo, repete várias promessas de 2022. A reversão da privatização da Eletrobras, por exemplo, saiu do texto.</div>
+    </div>
+  </details>
+
+  <details>
+    <summary>"Um ministério novo vai resolver a segurança?"</summary>
+    <div class="qa">
+      <div class="a"><b class="l">Argumento</b>O foco é o dinheiro e a coordenação: asfixia financeira (o plano cita R$ 35,8 bi em prejuízos ao crime desde 2023), Lei Antifacção, controle de armas e integração de dados com os estados.</div>
+      <div class="w"><b class="l">Ponto fraco</b>O ministério só nasce depois da PEC da Segurança, e o resultado depende de polícias que são estaduais.</div>
+    </div>
+  </details>
+
+  <details>
+    <summary>"Isso não é estatismo? Petrobras, crédito público, conteúdo local..."</summary>
+    <div class="qa">
+      <div class="a"><b class="l">Argumento</b>É política industrial combinada com o setor privado: concessões em ritmo recorde (segundo o plano), Eco Invest mobilizando mais de R$ 141 bi de capital privado e compras públicas como indutor de investimento.</div>
+      <div class="w"><b class="l">Ponto fraco</b>Críticos apontam custo fiscal do crédito subsidiado e preços maiores por exigência de conteúdo local. O adversário defende limitar o crédito subsidiado do Tesouro e retomar privatizações.</div>
+    </div>
+  </details>
+</section>
+
+<!-- CONTRASTE -->
+<section id="flavio">
+  <h2>Contraste rápido com Flávio Bolsonaro</h2>
+  <p class="sub">Só os pontos em que os planos mais se diferenciam na economia e no trabalho, conforme Forbes Brasil e Band.</p>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Tema</th><th>Lula (PT)</th><th>Flávio (PL)</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Regra fiscal</strong></td><td>Manter o arcabouço fiscal</td><td>"Tesouraço": reformular as regras para estabilizar e reduzir a dívida</td></tr>
+        <tr><td><strong>Papel do Estado</strong></td><td>Crédito público, compras e política industrial</td><td>Limitar o crédito subsidiado do Tesouro; privatizações avaliadas caso a caso</td></tr>
+        <tr><td><strong>Máquina pública</strong></td><td>Serviços compartilhados; sem lista de cortes</td><td>Cortar ao menos 10 ministérios e reduzir cargos comissionados</td></tr>
+        <tr><td><strong>Jornada</strong></td><td>PEC 221: 40h, escala 5x2, sem redução de salário</td><td>PEC 12: jornada menor opcional, com pagamento proporcional</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <small class="note">Onde os planos se diferenciam na economia, o debate é sobre quem corta e quem investe. Confira os dois programas no site do TSE para checar os detalhes.</small>
+</section>
+
+<!-- DECORAR -->
+<section id="decorar">
+  <h2>Para decorar</h2>
+  <ol class="remember">
+    <li><strong>Continuidade com acréscimos.</strong> Manter Bolsa Família, MCMV, Pé-de-Meia e Farmácia Popular, e acrescentar fim da 6x1, Ministério da Segurança, exames no SUS e IA/soberania digital.</li>
+    <li><strong>Separe o que ele faz sozinho do que depende do Congresso.</strong> Saúde e moradia são do governo; 6x1, Segurança e emendas dependem do Legislativo.</li>
+    <li><strong>A conta fecha com três ideias:</strong> crescimento, justiça tributária e controle do ritmo do gasto pelo arcabouço.</li>
+    <li><strong>Cortes explícitos? Não há.</strong> Mas o espaço fiscal é apertado, e o plano não responde onde cortar se a conta não fechar.</li>
+    <li><strong>A 6x1 está no Senado agora.</strong> O resultado depende de votação, de quem ganha a eleição e do Congresso que sair das urnas.</li>
+  </ol>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Antes de usar em público:</strong> este é um material de estudo feito a partir do programa de governo (84 páginas, registrado no TSE) e de reportagens. As afirmações sobre resultados do governo ("o plano afirma", "segundo o plano") são do próprio programa e não foram auditadas por mim. Confira os números antes de citá-los.</p>
+    <p><strong>Fontes</strong></p>
+    <ul>
+      <li>Programa de governo de Lula (PDF): <a href="https://static.poder360.com.br/uploads/2026/08/Programa-Governo-LULA-2026.pdf">static.poder360.com.br</a></li>
+      <li>Planos no TSE: <a href="https://www.tse.jus.br/eleicoes/eleicoes-2026-content/propostas-de-governo-dos-candidatos-ao-cargo-de-presidente-da-republica-eleicoes-2026-segundo-turno">tse.jus.br</a></li>
+      <li>Forbes Brasil, "O que Lula quer manter e mudar na economia": <a href="https://forbes.com.br/forbes-money/2026/10/o-que-lula-quer-manter-e-mudar-na-economia-em-um-novo-mandato/">forbes.com.br</a></li>
+      <li>Gazeta do Povo, análise do plano econômico: <a href="https://www.gazetadopovo.com.br/eleicoes/2026/plano-de-governo-lula-economia/">gazetadopovo.com.br</a></li>
+      <li>Band, PEC 221 x PEC 12: <a href="https://www.band.com.br/politica/eleicoes/pec-do-fim-da-escala-6x1-o-que-defendem-lula-e-flavio-bolsonaro">band.com.br</a></li>
+      <li>Votação da PEC no Senado: <a href="https://bpmoney.com.br/?p=424963">bpmoney</a>, <a href="https://diariodonordeste.verdesmares.com.br/pontopoder/alcolumbre-confirma-votacao-do-fim-da-escala-6x1-e-diz-que-seguira-rito-no-senado-1.3796974">Diário do Nordeste</a>, <a href="https://monitormercantil.com.br/aprovacao-do-fim-da-6x1-na-camara-joga-pressao-sobre-senado-e-bolsonaristas/">Monitor Mercantil</a></li>
+      <li>Serviço público e reforma administrativa: <a href="https://folha.qconcursos.com/n/eleicoes-2026-segundo-turno-propostas-concursos">Folha/QConcursos</a></li>
+      <li>Visão geral dos planos: <a href="https://www.folhavitoria.com.br/eleicoes/eleicoes-2026-veja-as-propostas-de-governo-de-flavio-bolsonaro-e-lula/">Folha Vitória</a></li>
+      <li>Análise fiscal: <a href="https://allangallo.substack.com/p/o-silencio-fiscal-do-programa-economico">"O silêncio fiscal do programa econômico de Lula"</a></li>
+    </ul>
+    <p>Eixos 10 a 13 do programa (energia, clima, trabalho e soberania) foram lidos por trechos e reportagens, com menos detalhe que os eixos 1 a 9.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var tabs = document.querySelectorAll('#tabs button');
+  var panels = document.querySelectorAll('.panel');
+  tabs.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      tabs.forEach(function(b){ b.setAttribute('aria-selected', b === btn ? 'true' : 'false'); });
+      panels.forEach(function(p){ p.classList.toggle('on', p.id === btn.getAttribute('data-tab')); });
+    });
+  });
+})();
+</script>
+</body>
+</html>
